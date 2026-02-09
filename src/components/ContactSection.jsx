@@ -21,8 +21,8 @@ export const ContactSection = () => {
           I'm always open to discussing new opportunities.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
+          <div className="space-y-8 md:col-span-2 max-w-xl mx-auto">
             <h3 className="text-2xl font-semibold mb-6">
               Contact Information
             </h3>
@@ -82,7 +82,7 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div className="bg-card p-8 rounded-lg shadow-xs">
+         {/*   <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
             <form className="space-y-6">
@@ -129,7 +129,7 @@ export const ContactSection = () => {
                 Send Message
               </button>
             </form>
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>
