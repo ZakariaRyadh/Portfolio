@@ -18,9 +18,9 @@ export const HeroSection = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4 ">
-            I build modern, responsive web applications using React. I focus on
-            clean UI, reusable components, and smooth user experiences.
-            Passionate about turning ideas into fast and scalable interfaces.
+            I build modern web and mobile applications with clean UI,
+            reusable components, and smooth user experiences. Passionate
+            about turning ideas into fast and scalable products.
           </p>
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">

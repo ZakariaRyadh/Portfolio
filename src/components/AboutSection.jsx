@@ -11,19 +11,19 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web Developer & Tech Creator
+              Passionate Web & Mobile Developer
             </h3>
 
             <p className="text-muted-foreground">
-              With over 5 years of experience in web development, I specialize
-              in creating responsive, accessible, and performant web
-              applications using modern technologies.
+              I build responsive, accessible, and performant web and mobile
+              applications, from React/React Native frontends to Django
+              backends and IoT integrations.
             </p>
 
             <p className="text-muted-foreground">
               I'm passionate about creating elegant solutions to complex
               problems and continuously improving my skills to stay aligned
-              with the evolving web landscape.
+              with the evolving web and mobile landscape.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -47,10 +47,10 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Web Development</h4>
+                  <h4 className="font-semibold text-lg">Web & Mobile Development</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive websites and web applications using
-                    modern frameworks.
+                    Creating responsive websites and cross-platform mobile
+                    apps using modern frameworks.
                   </p>
                 </div>
               </div>

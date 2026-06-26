@@ -3,28 +3,43 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Real Estate Website",
-    description: "a modern and simple sell/rent website",
-    image: "/projects/project1.png",
-    tags: ["Html", "Css", "Javascript"],
+    title: "MotorWatch",
+    description:
+      "A mobile app for live motor monitoring via ESP32 sensors - real-time tension/temperature tracking, fault detection, alerts and history.",
+    image: "/projects/motor-app.jpg",
+    isPhone: true,
+    tags: ["React Native", "Expo", "Django", "DRF", "ESP32"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     id: 2,
-    title: "Notes App",
-    description: "a simple notes app",
-    image: "/projects/project2.png",
-    tags: ["React", "Css"],
+    title: "Kaizen",
+    description:
+      "A daily productivity app combining tasks, gym programs, calendar, notes and learning tracking in one clean dark UI.",
+    image: "/projects/kaizen.jpg",
+    isPhone: true,
+    tags: ["React Native", "Expo", "Django", "DRF", "Zustand"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
-    id: 1,
-    title: "Expence Tracker",
-    description: "a simple expence tracker app for beginners",
-    image: "/projects/project3.png",
-    tags: ["React", "Css"],
+    id: 3,
+    title: "PFESI",
+    description:
+      "A web platform for managing final-year projects - topic proposals, student assignments, supervisor tracking, defense scheduling and results, all in one place.",
+    image: "/projects/pfe-management.png",
+    tags: ["Next.js", "FastAPI", "Web App"],
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: 4,
+    title: "E-Commerce",
+    description:
+      "An online store with product catalog, cart, checkout flow and order management.",
+    image: "/projects/e-commerce.png",
+    tags: ["Next.js", "Web App"],
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -38,8 +53,9 @@ export const ProjectsSection = () => {
           Featured<span className="text-primary">Projects</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          here are some of my projects,each project was carefully crafted with
-          attention to detail ,performance and user experience
+          A selection of my web and mobile development projects, each
+          carefully crafted with attention to detail, performance and user
+          experience
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -48,11 +64,15 @@ export const ProjectsSection = () => {
               key={key}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-64 overflow-hidden bg-secondary/30 flex items-center justify-center">
                 <img
                   src={projects.image}
                   alt={projects.title}
-                  className="w-full h-full object-hover transition-transform duration-500 group-hover:scale-110  "
+                  className={`transition-transform duration-500 group-hover:scale-110 ${
+                    projects.isPhone
+                      ? "h-full w-auto object-contain"
+                      : "w-full h-full object-cover object-top"
+                  }`}
                 />
               </div>
 
