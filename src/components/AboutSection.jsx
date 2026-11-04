@@ -1,4 +1,4 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Code, ShieldCheck } from "lucide-react";
 
 export const AboutSection = () => {
   return (
@@ -17,8 +17,8 @@ export const AboutSection = () => {
             <p className="text-muted-foreground">
               I'm a computer science student focused on cyber security, and I
               work as a freelance developer. I build responsive and
-              performant web, mobile and desktop apps, from React/React
-              Native frontends to Django backends and IoT integrations.
+              performant web, mobile and desktop apps, with IoT integrations
+              when the project needs them.
             </p>
 
             <p className="text-muted-foreground">
@@ -61,13 +61,13 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
+                  <ShieldCheck className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">User Experience</h4>
+                  <h4 className="font-semibold text-lg">Information Security</h4>
                   <p className="text-muted-foreground">
-                    Designing intuitive interfaces focused on usability and
-                    accessibility.
+                    Building secure applications that protect data, with safe
+                    authentication and input validation.
                   </p>
                 </div>
               </div>

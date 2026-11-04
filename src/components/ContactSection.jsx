@@ -1,12 +1,5 @@
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import { Mail, Twitter } from "lucide-react";
+// Phone, MapPin, Linkedin, Instagram, Facebook icons removed for now (re-add with their blocks below)
 
 export const ContactSection = () => {
   return (
@@ -43,6 +36,7 @@ export const ContactSection = () => {
                 </div>
               </div>
 
+              {/* Phone and Location hidden for now
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Phone className="h-6 w-6 text-primary" />
@@ -69,15 +63,16 @@ export const ContactSection = () => {
                   </span>
                 </div>
               </div>
+              */}
             </div>
 
             <div className="p-8">
               <h4 className="font-medium mb-4">Connect with me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank"><Linkedin /></a>
-                <a href="#" target="_blank"><Twitter /></a>
-                <a href="#" target="_blank"><Instagram /></a>
-                <a href="#" target="_blank"><Facebook /></a>
+                {/* <a href="#" target="_blank"><Linkedin /></a> */}
+                <a href="https://x.com/ZakariaRyadh" target="_blank" rel="noreferrer"><Twitter /></a>
+                {/* <a href="#" target="_blank"><Instagram /></a> */}
+                {/* <a href="#" target="_blank"><Facebook /></a> */}
               </div>
             </div>
           </div>

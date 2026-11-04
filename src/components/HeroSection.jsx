@@ -19,8 +19,8 @@ export const HeroSection = () => {
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4 ">
             Freelance web, mobile and desktop developer. I build fast, clean
-            and secure applications for clients, from React frontends to
-            Django backends, with a cyber security mindset.
+            and secure applications for clients, with a cyber security
+            mindset.
           </p>
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">
