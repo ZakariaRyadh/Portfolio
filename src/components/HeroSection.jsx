@@ -14,13 +14,13 @@ export const HeroSection = () => {
               Zakaria
             </span>
             <span className="text-gradiant ml-2 opacity-0 animate-fade-in-delay-2 ">
-              Klouch
+              Ryadh
             </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4 ">
-            I build modern web and mobile applications with clean UI,
-            reusable components, and smooth user experiences. Passionate
-            about turning ideas into fast and scalable products.
+            Freelance web, mobile and desktop developer. I build fast, clean
+            and secure applications for clients, from React frontends to
+            Django backends, with a cyber security mindset.
           </p>
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">

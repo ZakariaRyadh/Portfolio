@@ -53,7 +53,7 @@ export const ProjectsSection = () => {
           Featured<span className="text-primary">Projects</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A selection of my web and mobile development projects, each
+          A selection of my web, mobile and desktop projects, each
           carefully crafted with attention to detail, performance and user
           experience
         </p>

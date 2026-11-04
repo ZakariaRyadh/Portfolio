@@ -11,19 +11,19 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web & Mobile Developer
+              Freelance Web, Mobile & Desktop Developer
             </h3>
 
             <p className="text-muted-foreground">
-              I build responsive, accessible, and performant web and mobile
-              applications, from React/React Native frontends to Django
-              backends and IoT integrations.
+              I'm a computer science student focused on cyber security, and I
+              work as a freelance developer. I build responsive and
+              performant web, mobile and desktop apps, from React/React
+              Native frontends to Django backends and IoT integrations.
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems and continuously improving my skills to stay aligned
-              with the evolving web and mobile landscape.
+              I care about clean code and security from the start, and I
+              share my progress publicly on X as I build.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -31,12 +31,14 @@ export const AboutSection = () => {
                 Get in Touch
               </a>
 
+              {/* Download CV button disabled for now
               <a
                 href="#"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
               </a>
+              */}
             </div>
           </div>
 
@@ -47,10 +49,10 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Web & Mobile Development</h4>
+                  <h4 className="font-semibold text-lg">Web, Mobile & Desktop</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive websites and cross-platform mobile
-                    apps using modern frameworks.
+                    Creating responsive websites, cross-platform mobile apps
+                    and desktop applications.
                   </p>
                 </div>
               </div>

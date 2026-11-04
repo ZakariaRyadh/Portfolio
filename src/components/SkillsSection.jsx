@@ -14,6 +14,10 @@ const skills = [
   { name: "Expo", level: 85, category: "mobile" },
   { name: "Zustand", level: 75, category: "mobile" },
 
+  // Desktop
+  { name: "PyQt", level: 70, category: "desktop" },
+  { name: "PySide6", level: 70, category: "desktop" },
+
   // Backend
   { name: "Django", level: 80, category: "backend" },
   { name: "Django REST Framework", level: 80, category: "backend" },
@@ -32,7 +36,7 @@ const skills = [
   { name: "VS Code", level: 95, category: "tools" },
 ];
 
-const categories = ["all", "frontend", "mobile", "backend", "ml", "tools"];
+const categories = ["all", "frontend", "mobile", "desktop", "backend", "ml", "tools"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");

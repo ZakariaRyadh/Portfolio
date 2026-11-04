@@ -93,7 +93,7 @@ export const ContactSection = () => {
                 <input
                   type="text"
                   required
-                  placeholder="Zakaria Klouch..."
+                  placeholder="Zakaria Ryadh..."
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:ring-2 focus:ring-primary"
                 />
               </div>
