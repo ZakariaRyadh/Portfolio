@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NavItems = [
   { name: "home", href: "#hero" },
@@ -45,7 +46,7 @@ export const NavBar = () => {
         </a>
 
         {/* desktop version */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8 ml-auto mr-4">
           {NavItems.map((item, key) => (
             <a
               key={key}
@@ -57,14 +58,17 @@ export const NavBar = () => {
           ))}
         </div>
 
-        {/* mobile version */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "close Menu" : "open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* theme toggle (all sizes) + mobile menu button */}
+        <div className="flex items-center gap-1 relative z-50">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="md:hidden p-2 text-foreground"
+            aria-label={isMenuOpen ? "close Menu" : "open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         <div
           className={cn(

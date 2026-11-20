@@ -1,31 +1,41 @@
-import { Sun, Moon, EyeClosed } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
-export const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark"
-  );
+// Saved choice first, else the device's theme (index.html applies it before render)
+const initialDark = () => {
+  const stored = localStorage.getItem("theme");
+  if (stored) return stored === "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
+
+export const ThemeToggle = ({ className }) => {
+  const [isDarkMode, setIsDarkMode] = useState(initialDark);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
-  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+  const toggleTheme = () => {
+    const next = !isDarkMode;
+    localStorage.setItem("theme", next ? "dark" : "light");
+    setIsDarkMode(next);
+  };
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
+      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
-        "focus:outlin-hidden"
+        "p-2 rounded-full transition-colors duration-300 hover:bg-primary/10",
+        className
       )}
     >
       {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
+        <Sun className="h-5 w-5 text-yellow-300" />
       ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
+        <Moon className="h-5 w-5 text-foreground" />
       )}
     </button>
   );

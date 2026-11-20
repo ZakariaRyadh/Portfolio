@@ -10,7 +10,6 @@ import {
   Maximize2,
   X,
 } from "lucide-react";
-import { ThemeToggle } from "../components/ThemeToggle";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import { projects } from "../data/projects";
@@ -91,11 +90,10 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden text-left">
-      <ThemeToggle />
       <NavBar />
 
       {/* ---------- hero ---------- */}
-      <header className="relative pt-32 pb-16 px-4">
+      <header className="relative pt-28 md:pt-32 pb-12 md:pb-16 px-4">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-gradient-to-b from-primary/10 via-primary/5 to-transparent"
@@ -111,7 +109,7 @@ const ProjectDetail = () => {
           <p className="mt-10 text-sm font-medium uppercase tracking-[0.18em] text-primary">
             {project.category}
           </p>
-          <h1 className="mt-3 text-4xl md:text-6xl font-bold tracking-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight break-words">
             {project.title}
           </h1>
           <p className="mt-5 max-w-3xl text-lg md:text-xl leading-relaxed text-muted-foreground">
@@ -162,7 +160,7 @@ const ProjectDetail = () => {
           {/* cover */}
           <div className="mt-12">
             {project.isPhone ? (
-              <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/15 via-card to-card p-8 md:p-12 flex justify-center gap-6 md:gap-10">
+              <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/15 via-card to-card px-4 py-6 sm:p-8 md:p-12 flex justify-center gap-3 sm:gap-6 md:gap-10">
                 {(phoneShots.length ? phoneShots : [{ src: project.image, caption: project.title }])
                   .slice(0, 3)
                   .map((shot) => (
@@ -170,12 +168,12 @@ const ProjectDetail = () => {
                       key={shot.src}
                       type="button"
                       onClick={() => phoneShots.length && showShot(shot)}
-                      className="rounded-[2rem] border-[6px] border-foreground/90 bg-black overflow-hidden shadow-2xl transition-transform hover:-translate-y-1"
+                      className="flex-1 max-w-[234px] rounded-[1.4rem] sm:rounded-[2rem] border-4 sm:border-[6px] border-foreground/90 bg-black overflow-hidden shadow-2xl transition-transform hover:-translate-y-1"
                     >
                       <img
                         src={shot.src}
                         alt={shot.caption}
-                        className="h-[380px] w-[172px] md:h-[520px] md:w-[234px] object-cover object-top"
+                        className="block w-full aspect-[9/19.5] object-cover object-top"
                       />
                     </button>
                   ))}
@@ -190,7 +188,7 @@ const ProjectDetail = () => {
                   <img
                     src={desktopShots[0]?.src ?? project.image}
                     alt={project.title}
-                    className="w-full max-h-[620px] object-cover object-top"
+                    className="w-full aspect-[16/10] md:aspect-auto md:max-h-[620px] object-cover object-top"
                   />
                 </BrowserFrame>
               </button>
@@ -206,13 +204,16 @@ const ProjectDetail = () => {
       {project.highlights?.length > 0 && (
         <div className="px-4">
           <div className="container max-w-6xl">
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {project.highlights.map((h) => (
-                <div key={h.label} className="rounded-xl border border-border bg-card p-4 sm:p-6">
-                  <p className="text-2xl sm:text-4xl font-bold tracking-tight text-primary">
+                <div
+                  key={h.label}
+                  className="flex items-center gap-4 sm:block rounded-xl border border-border bg-card p-4 sm:p-6"
+                >
+                  <p className="shrink-0 min-w-[3.5rem] text-2xl sm:text-4xl font-bold tracking-tight text-primary">
                     {h.value}
                   </p>
-                  <p className="mt-1 text-xs sm:text-sm leading-snug text-muted-foreground">{h.label}</p>
+                  <p className="sm:mt-1 text-sm leading-snug text-muted-foreground">{h.label}</p>
                 </div>
               ))}
             </div>
@@ -308,23 +309,23 @@ const ProjectDetail = () => {
               )}
 
               {galleryPhone.length > 0 && (
-                <div className="flex flex-wrap gap-8">
+                <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:gap-8">
                   {galleryPhone.map((shot) => (
-                    <figure key={shot.src}>
+                    <figure key={shot.src} className="sm:w-[190px]">
                       <button
                         type="button"
                         onClick={() => showShot(shot)}
-                        className="rounded-[1.75rem] border-[5px] border-foreground/90 bg-black overflow-hidden shadow-lg transition-transform hover:-translate-y-1"
+                        className="block w-full rounded-[1.4rem] sm:rounded-[1.75rem] border-4 sm:border-[5px] border-foreground/90 bg-black overflow-hidden shadow-lg transition-transform hover:-translate-y-1"
                         aria-label={`Enlarge: ${shot.caption}`}
                       >
                         <img
                           src={shot.src}
                           alt={shot.caption}
                           loading="lazy"
-                          className="h-[420px] w-[190px] object-cover object-top"
+                          className="block w-full aspect-[9/19.5] object-cover object-top"
                         />
                       </button>
-                      <figcaption className="mt-3 text-sm text-muted-foreground max-w-[200px]">
+                      <figcaption className="mt-3 text-sm text-muted-foreground">
                         {shot.caption}
                       </figcaption>
                     </figure>
