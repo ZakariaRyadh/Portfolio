@@ -1,6 +1,12 @@
 export const projects = [
   {
     slug: "motorwatch",
+    category: "Mobile app · IoT · AI",
+    highlights: [
+      { value: "97.5%", label: "model accuracy" },
+      { value: "7", label: "motor states detected" },
+      { value: "4", label: "sensor types" },
+    ],
     title: "MotorWatch",
     description:
       "A mobile app for live motor monitoring via ESP32 sensors - real-time tension/temperature tracking, fault detection, alerts and history.",
@@ -35,6 +41,13 @@ export const projects = [
   },
   {
     slug: "kaizen",
+    flow: "Expo app → Django REST API → Neon Postgres",
+    category: "Mobile app",
+    highlights: [
+      { value: "5", label: "areas in one app" },
+      { value: "APK", label: "Android build shipped" },
+      { value: "Weekly", label: "automated DB backups" },
+    ],
     title: "Kaizen",
     description:
       "A daily productivity app combining tasks, gym programs, calendar, notes and learning tracking in one clean dark UI.",
@@ -70,6 +83,13 @@ export const projects = [
   },
   {
     slug: "pfesi",
+    flow: "Next.js frontend → FastAPI → MySQL + Redis",
+    category: "Web platform",
+    highlights: [
+      { value: "4", label: "user roles" },
+      { value: "6", label: "team members" },
+      { value: "11", label: "weeks, 5 sprints" },
+    ],
     title: "PFESI",
     description:
       "A web platform for managing final-year projects - topic proposals, student assignments, supervisor tracking, defense scheduling and results, all in one place.",
@@ -103,6 +123,13 @@ export const projects = [
   },
   {
     slug: "e-commerce",
+    flow: "Next.js storefront + admin → API routes (Zod) → PostgreSQL (Prisma)",
+    category: "Web app",
+    highlights: [
+      { value: "0", label: "mock data, all live queries" },
+      { value: "2", label: "roles: customer and admin" },
+      { value: "OTP", label: "password reset by email" },
+    ],
     title: "E-Commerce",
     description:
       "An online store with product catalog, cart, checkout flow and order management.",
@@ -133,6 +160,13 @@ export const projects = [
   },
   {
     slug: "smart-firewall",
+    flow: "Port knock → Hard rules → Anomaly score → Allow / Extra check / Block",
+    category: "Security · Machine learning",
+    highlights: [
+      { value: "3", label: "outcomes: allow, extra check, block" },
+      { value: "5", label: "behavior features" },
+      { value: "4", label: "hard rules before the model" },
+    ],
     title: "Smart Firewall",
     description:
       "A behavior-aware access gateway on a Raspberry Pi. Port-knocking hides SSH, and an anomaly model scores each connection to allow, challenge or block it, even with a valid password. Live dashboard included.",
@@ -141,7 +175,7 @@ export const projects = [
     demoUrl: "#",
     githubUrl: "https://github.com/ZakariaRyadh/smart-firewall",
     status: "In progress (works in VMs, Pi deploy next)",
-    role: "Team of 3 students",
+    role: "Solo: model, gateway, dashboard and testing",
     purpose:
       "A normal firewall only checks the password. If an attacker steals valid credentials, it lets them straight in. This project asks a second question: does this connection behave like the real user?",
     keyIdea:
