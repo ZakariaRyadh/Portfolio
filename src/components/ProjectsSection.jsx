@@ -43,6 +43,16 @@ const projects = [
     demoUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: 5,
+    title: "Smart Firewall",
+    description:
+      "A behavior-aware access gateway on a Raspberry Pi. Port-knocking hides SSH, and an anomaly model scores each connection to allow, challenge or block it, even with a valid password. Live dashboard included.",
+    image: "/projects/firewall.png",
+    tags: ["Python", "scikit-learn", "nftables", "Flask", "React", "Raspberry Pi"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ZakariaRyadh/smart-firewall",
+  },
 ];
 
 export const ProjectsSection = () => {
