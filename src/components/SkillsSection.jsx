@@ -67,13 +67,13 @@ export const SkillsSection = () => {
           My <span className="text-primary">Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-3 py-1.5 text-sm sm:px-5 sm:py-2 sm:text-base rounded-full transition-colors duration-300 capitalize",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
@@ -84,27 +84,26 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {filteredSkills.map((skill) => (
             <div
               key={skill.name}
-              className="bg-card p-6 rounded-lg shadow card-hover"
+              className="bg-card p-3 sm:p-6 rounded-lg shadow card-hover text-left"
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
-              </div>
-
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full transition-all duration-700"
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
+              <div className="flex items-start justify-between gap-2 mb-2 sm:mb-4">
+                <h3 className="font-semibold text-sm sm:text-lg leading-tight">
+                  {skill.name}
+                </h3>
+                <span className="text-xs sm:text-sm text-muted-foreground shrink-0">
                   {skill.level}%
                 </span>
+              </div>
+
+              <div className="w-full bg-secondary/50 h-1.5 sm:h-2 rounded-full overflow-hidden">
+                <div
+                  className="bg-primary h-full rounded-full transition-all duration-700"
+                  style={{ width: `${skill.level}%` }}
+                />
               </div>
             </div>
           ))}

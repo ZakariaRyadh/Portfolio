@@ -27,7 +27,16 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // lock page scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
+    <>
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
@@ -70,9 +79,13 @@ export const NavBar = () => {
           </button>
         </div>
 
+      </div>
+    </nav>
+
+    {/* mobile menu: outside <nav>, whose blur would trap a fixed child */}
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-30 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -84,7 +97,7 @@ export const NavBar = () => {
               <a
                 key={key}
                 href={prefix + item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-xl text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -92,7 +105,6 @@ export const NavBar = () => {
             ))}
           </div>
         </div>
-      </div>
-    </nav>
+    </>
   );
 };
