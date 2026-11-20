@@ -163,9 +163,9 @@ export const projects = [
     flow: "Port knock → Hard rules → Anomaly score → Allow / Extra check / Block",
     category: "Security · Machine learning",
     highlights: [
-      { value: "5 of 6", label: "attack scenarios stopped in all 50 test runs" },
-      { value: "0", label: "attacker logins let in during the live Pi test" },
-      { value: "98", label: "automated tests" },
+      { value: "3", label: "decisions: allow, extra check, block" },
+      { value: "5", label: "behavior signals checked per login" },
+      { value: "4", label: "hard rules before the AI model" },
     ],
     title: "Smart Firewall",
     description:
