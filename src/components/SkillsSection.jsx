@@ -5,6 +5,7 @@ const skills = [
   // Frontend
   { name: "HTML/CSS", level: 95, category: "frontend" },
   { name: "JavaScript", level: 90, category: "frontend" },
+  { name: "TypeScript", level: 80, category: "frontend" },
   { name: "React", level: 90, category: "frontend" },
   { name: "Tailwind CSS", level: 80, category: "frontend" },
   { name: "Next.js", level: 70, category: "frontend" },
@@ -24,6 +25,19 @@ const skills = [
   { name: "FastAPI", level: 65, category: "backend" },
   { name: "PostgreSQL", level: 65, category: "backend" },
   { name: "SQLite", level: 75, category: "backend" },
+  { name: "Flask", level: 65, category: "backend" },
+  { name: "Prisma", level: 70, category: "backend" },
+  { name: "Redis / WebSockets", level: 65, category: "backend" },
+  { name: "JWT Auth", level: 80, category: "backend" },
+
+  // IoT
+  { name: "Raspberry Pi", level: 75, category: "iot" },
+  { name: "ESP32", level: 65, category: "iot" },
+
+  // Security
+  { name: "Linux", level: 80, category: "security" },
+  { name: "nftables / Firewalls", level: 70, category: "security" },
+  { name: "Anomaly Detection", level: 65, category: "security" },
 
   // Machine Learning
   { name: "Python", level: 80, category: "ml" },
@@ -34,9 +48,11 @@ const skills = [
   { name: "Git/GitHub", level: 90, category: "tools" },
   { name: "Figma", level: 85, category: "tools" },
   { name: "VS Code", level: 95, category: "tools" },
+  { name: "Deployment (Vercel, Render, Railway)", level: 75, category: "tools" },
 ];
 
-const categories = ["all", "frontend", "mobile", "desktop", "backend", "ml", "tools"];
+const categories = ["all", "frontend", "mobile", "desktop", "backend", "ml", "iot", "security", "tools"];
+const labels = { ml: "ML", iot: "IoT" };
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -63,7 +79,7 @@ export const SkillsSection = () => {
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
-              {category}
+              {labels[category] ?? category}
             </button>
           ))}
         </div>
