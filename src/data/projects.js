@@ -86,9 +86,9 @@ export const projects = [
     flow: "Next.js frontend → FastAPI → MySQL + Redis",
     category: "Web platform",
     highlights: [
-      { value: "4", label: "user roles, one login" },
-      { value: "11", label: "feature domains" },
-      { value: "5", label: "Scrum sprints in 11 weeks" },
+      { value: "4", label: "roles: super admin, administration, teacher, student" },
+      { value: "1", label: "login that opens the right dashboard" },
+      { value: "1", label: "place for the whole PFE cycle, from themes to defense results" },
     ],
     title: "PFESI",
     description:
@@ -126,9 +126,9 @@ export const projects = [
     flow: "Next.js storefront + admin → API routes (Zod) → PostgreSQL (Prisma)",
     category: "Web app",
     highlights: [
-      { value: "6", label: "admin sections: products, orders, customers…" },
-      { value: "1", label: "DB transaction per order, no overselling" },
-      { value: "100%", label: "live data, no mock values" },
+      { value: "2", label: "sides: storefront and admin dashboard" },
+      { value: "2", label: "roles: customer and admin" },
+      { value: "6", label: "admin tools: products, categories, orders, customers, messages, analytics" },
     ],
     title: "E-Commerce",
     description:
