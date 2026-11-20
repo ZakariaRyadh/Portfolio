@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const NavItems = [
   { name: "home", href: "#hero" },
@@ -13,6 +14,8 @@ const NavItems = [
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // on other pages, anchors must go back to the home page first
+  const prefix = useLocation().pathname === "/" ? "" : "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +36,7 @@ export const NavBar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
+          href={`${prefix}#hero`}
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground">ZAKARIA</span>
@@ -46,7 +49,7 @@ export const NavBar = () => {
           {NavItems.map((item, key) => (
             <a
               key={key}
-              href={item.href}
+              href={prefix + item.href}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
@@ -76,7 +79,7 @@ export const NavBar = () => {
             {NavItems.map((item, key) => (
               <a
                 key={key}
-                href={item.href}
+                href={prefix + item.href}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >

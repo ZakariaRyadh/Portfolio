@@ -1,121 +1,90 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { Link } from "react-router-dom";
+import { projects } from "../data/projects";
 
-const projects = [
-  {
-    id: 1,
-    title: "MotorWatch",
-    description:
-      "A mobile app for live motor monitoring via ESP32 sensors - real-time tension/temperature tracking, fault detection, alerts and history.",
-    image: "/projects/motor-app.jpg",
-    isPhone: true,
-    tags: ["React Native", "Expo", "Django", "DRF", "ESP32"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 2,
-    title: "Kaizen",
-    description:
-      "A daily productivity app combining tasks, gym programs, calendar, notes and learning tracking in one clean dark UI.",
-    image: "/projects/kaizen.jpg",
-    isPhone: true,
-    tags: ["React Native", "Expo", "Django", "DRF", "Zustand"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 3,
-    title: "PFESI",
-    description:
-      "A web platform for managing final-year projects - topic proposals, student assignments, supervisor tracking, defense scheduling and results, all in one place.",
-    image: "/projects/pfe-management.png",
-    tags: ["Next.js", "FastAPI", "Web App"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 4,
-    title: "E-Commerce",
-    description:
-      "An online store with product catalog, cart, checkout flow and order management.",
-    image: "/projects/e-commerce.png",
-    tags: ["Next.js", "Web App"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 5,
-    title: "Smart Firewall",
-    description:
-      "A behavior-aware access gateway on a Raspberry Pi. Port-knocking hides SSH, and an anomaly model scores each connection to allow, challenge or block it, even with a valid password. Live dashboard included.",
-    image: "/projects/firewall.png",
-    tags: ["Python", "scikit-learn", "nftables", "Flask", "React", "Raspberry Pi"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ZakariaRyadh/smart-firewall",
-  },
-];
+const isLink = (url) => url && url !== "#";
 
 export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl ">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured<span className="text-primary">Projects</span>
+          Featured <span className="text-primary">Projects</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A selection of my web, mobile and desktop projects, each
-          carefully crafted with attention to detail, performance and user
-          experience
+          A selection of my web, mobile and desktop projects. Open any project
+          to see why I built it, the key idea, the stack and screenshots.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((projects, key) => (
+          {projects.map((project) => (
             <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              key={project.slug}
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
             >
-              <div className="h-64 overflow-hidden bg-secondary/30 flex items-center justify-center">
+              <Link
+                to={`/projects/${project.slug}`}
+                className="h-64 overflow-hidden bg-secondary/30 flex items-center justify-center"
+                aria-label={`View details: ${project.title}`}
+              >
                 <img
-                  src={projects.image}
-                  alt={projects.title}
+                  src={project.image}
+                  alt={project.title}
                   className={`transition-transform duration-500 group-hover:scale-110 ${
-                    projects.isPhone
+                    project.isPhone
                       ? "h-full w-auto object-contain"
                       : "w-full h-full object-cover object-top"
                   }`}
                 />
-              </div>
+              </Link>
 
-              <div className="p-6 ">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {projects.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs border font-medium rounded-full bg-secondary text-secondary-foreground ">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs border font-medium rounded-full bg-secondary text-secondary-foreground "
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1">{projects.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">
-                  {projects.description}
+                  {project.description}
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-auto">
                   <div className="flex space-x-3 ">
-                    <a
-                      href={projects.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={projects.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                    {isLink(project.demoUrl) && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.title} demo`}
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {isLink(project.githubUrl) && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.title} on GitHub`}
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                  >
+                    View details <ArrowRight size={16} />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -123,7 +92,7 @@ export const ProjectsSection = () => {
         </div>
         <div className="text-center mt-12">
             <a href="https://github.com/ZakariaRyadh" className="cosmic-button w-fit flex items-center mx-auto gap-2 "
-            target="_blank">
+            target="_blank" rel="noreferrer">
                 check my github <ArrowRight size={16} />
             </a>
         </div>

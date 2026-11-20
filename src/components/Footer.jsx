@@ -8,12 +8,14 @@ export const Footer = () => {
         {" "}
         &copy; {new Date().getFullYear()} Zakaria Ryadh. All rights reserved.
       </p>
-      <a
-        href="#hero"
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
         className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
       >
         <ArrowUp size={20} />
-      </a>
+      </button>
     </footer>
   );
 };
