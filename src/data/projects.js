@@ -88,7 +88,7 @@ export const projects = [
     highlights: [
       { value: "0", label: "backend changes: same API and account as the phone app" },
       { value: "Live", label: "sync: phone edits show up when you come back to the window" },
-      { value: "4", label: "security hardenings, each covered by a test" },
+      { value: "3", label: "platforms on one account: Android, Ubuntu and Windows" },
     ],
     title: "Kaizen Desktop",
     description:
