@@ -1,50 +1,73 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Layers, Radar, Shield } from "lucide-react";
+import {
+  SiDjango,
+  SiEspressif,
+  SiExpo,
+  SiFastapi,
+  SiFigma,
+  SiFlask,
+  SiGithub,
+  SiJsonwebtokens,
+  SiLinux,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiPython,
+  SiQt,
+  SiRaspberrypi,
+  SiReact,
+  SiRedis,
+  SiScikitlearn,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si";
 import { cn } from "../lib/utils";
 import { projects } from "../data/projects";
 
 // project: slug of the main project that used the skill (null = every project)
 const skills = [
   // Frontend
-  { name: "React", project: "pfesi", category: "frontend" },
-  { name: "TypeScript", project: "e-commerce", category: "frontend" },
-  { name: "Tailwind CSS", project: "e-commerce", category: "frontend" },
-  { name: "Next.js", project: "pfesi", category: "frontend" },
+  { name: "React", icon: SiReact, project: "pfesi", category: "frontend" },
+  { name: "TypeScript", icon: SiTypescript, project: "e-commerce", category: "frontend" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, project: "e-commerce", category: "frontend" },
+  { name: "Next.js", icon: SiNextdotjs, project: "pfesi", category: "frontend" },
 
   // Mobile
-  { name: "React Native / Expo", project: "kaizen", category: "mobile" },
-  { name: "Zustand", project: "kaizen", category: "mobile" },
+  { name: "React Native / Expo", icon: SiExpo, project: "kaizen", category: "mobile" },
+  { name: "Zustand", icon: Layers, project: "kaizen", category: "mobile" },
 
   // Desktop
-  { name: "PySide6 / Qt", project: "kaizen-desktop", category: "desktop" },
+  { name: "PySide6 / Qt", icon: SiQt, project: "kaizen-desktop", category: "desktop" },
 
   // Backend
-  { name: "Django + DRF", project: "motorwatch", category: "backend" },
-  { name: "JWT Auth", project: "kaizen", category: "backend" },
-  { name: "Prisma", project: "e-commerce", category: "backend" },
-  { name: "FastAPI", project: "pfesi", category: "backend" },
-  { name: "Flask", project: "smart-firewall", category: "backend" },
-  { name: "PostgreSQL", project: "e-commerce", category: "backend" },
-  { name: "Redis / WebSockets", project: "motorwatch", category: "backend" },
+  { name: "Django + DRF", icon: SiDjango, project: "motorwatch", category: "backend" },
+  { name: "JWT Auth", icon: SiJsonwebtokens, project: "kaizen", category: "backend" },
+  { name: "Prisma", icon: SiPrisma, project: "e-commerce", category: "backend" },
+  { name: "FastAPI", icon: SiFastapi, project: "pfesi", category: "backend" },
+  { name: "Flask", icon: SiFlask, project: "smart-firewall", category: "backend" },
+  { name: "PostgreSQL", icon: SiPostgresql, project: "e-commerce", category: "backend" },
+  { name: "Redis / WebSockets", icon: SiRedis, project: "motorwatch", category: "backend" },
 
   // IoT
-  { name: "Raspberry Pi", project: "motorwatch", category: "iot" },
-  { name: "ESP32", project: "motorwatch", category: "iot" },
+  { name: "Raspberry Pi", icon: SiRaspberrypi, project: "motorwatch", category: "iot" },
+  { name: "ESP32", icon: SiEspressif, project: "motorwatch", category: "iot" },
 
   // Security
-  { name: "Linux", project: "smart-firewall", category: "security" },
-  { name: "nftables / Firewalls", project: "smart-firewall", category: "security" },
-  { name: "Anomaly Detection", project: "smart-firewall", category: "security" },
+  { name: "Linux", icon: SiLinux, project: "smart-firewall", category: "security" },
+  { name: "nftables / Firewalls", icon: Shield, project: "smart-firewall", category: "security" },
+  { name: "Anomaly Detection", icon: Radar, project: "smart-firewall", category: "security" },
 
   // Machine Learning
-  { name: "Python", project: "kaizen-desktop", category: "ml" },
-  { name: "Scikit-learn / Pandas", project: "motorwatch", category: "ml" },
+  { name: "Python", icon: SiPython, project: "kaizen-desktop", category: "ml" },
+  { name: "Scikit-learn / Pandas", icon: SiScikitlearn, project: "motorwatch", category: "ml" },
 
   // Tools
-  { name: "Git/GitHub", project: null, category: "tools" },
-  { name: "Figma", project: "pfesi", category: "tools" },
-  { name: "Deployment (Vercel, Render, Railway)", project: "kaizen", category: "tools" },
+  { name: "Git/GitHub", icon: SiGithub, project: null, category: "tools" },
+  { name: "Figma", icon: SiFigma, project: "pfesi", category: "tools" },
+  { name: "Deployment (Vercel, Render, Railway)", icon: SiVercel, project: "kaizen", category: "tools" },
 ];
 
 const titleOf = Object.fromEntries(projects.map((p) => [p.slug, p.title]));
@@ -88,9 +111,12 @@ export const SkillsSection = () => {
               key={skill.name}
               className="bg-card p-3 sm:p-6 rounded-lg shadow card-hover text-left"
             >
-              <h3 className="font-semibold text-sm sm:text-lg leading-tight mb-2 sm:mb-3">
-                {skill.name}
-              </h3>
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <skill.icon className="h-4 w-4 sm:h-6 sm:w-6 shrink-0 text-primary" />
+                <h3 className="font-semibold text-sm sm:text-lg leading-tight">
+                  {skill.name}
+                </h3>
+              </div>
               {skill.project ? (
                 <Link
                   to={`/projects/${skill.project}`}
