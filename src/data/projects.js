@@ -86,9 +86,9 @@ export const projects = [
     flow: "PySide6 app → background worker → Django REST API (shared with the phone)",
     category: "Desktop app",
     highlights: [
-      { value: "1", label: "account and backend shared with the phone app" },
-      { value: "56", label: "pytest tests on logic, stores and security" },
-      { value: ".deb", label: "package for Ubuntu, plus a Windows build" },
+      { value: "0", label: "backend changes: same API and account as the phone app" },
+      { value: "Live", label: "sync: phone edits show up when you come back to the window" },
+      { value: "4", label: "security hardenings, each covered by a test" },
     ],
     title: "Kaizen Desktop",
     description:
