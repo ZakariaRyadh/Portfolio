@@ -82,6 +82,51 @@ export const projects = [
     screenshotNote: "Design mockups with placeholder data. The shipped app has moved on slightly.",
   },
   {
+    slug: "kaizen-desktop",
+    flow: "PySide6 app → background worker → Django REST API (shared with the phone)",
+    category: "Desktop app",
+    highlights: [
+      { value: "1", label: "account and backend shared with the phone app" },
+      { value: "56", label: "pytest tests on logic, stores and security" },
+      { value: ".deb", label: "package for Ubuntu, plus a Windows build" },
+    ],
+    title: "Kaizen Desktop",
+    description:
+      "The desktop version of Kaizen for Ubuntu: tasks, notes, calendar, learning and a gym log on a big screen, synced live with the phone app.",
+    image: "/projects/kaizen-desktop/Home.png",
+    tags: ["Python", "PySide6", "Qt", "httpx", "PyInstaller"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ZakariaRyadh/kaizen-desktop",
+    status: "Finished (v1.1.0), in daily use",
+    role: "Solo: design, desktop app, packaging and security check",
+    purpose:
+      "Planning and reviewing on a phone is slow. I wanted to plan my day, write notes and edit gym programs at my desk with a keyboard, and keep training on the phone, with the same data on both.",
+    keyIdea:
+      "A native PySide6 client that talks to the same Django API and account as the phone app, with no backend changes. The phone's logic was ported to Python: one store per area, optimistic writes, and every API call runs off the UI thread so the window never freezes on a cold server.",
+    stack: [
+      { group: "Desktop", items: ["Python 3.12", "PySide6 (Qt Widgets + QSS)", "Space Grotesk + JetBrains Mono"] },
+      { group: "Data and auth", items: ["httpx", "JWT with auto refresh", "keyring (GNOME Keyring / Credential Manager)"] },
+      { group: "Ship and test", items: ["PyInstaller", ".deb package + app menu launcher", "pytest", "Offscreen UI click-through scripts"] },
+    ],
+    learned: [
+      "Keeping a desktop UI responsive: blocking calls in a worker thread, results back on the UI thread.",
+      "Syncing two clients on one backend: refresh on focus, redraw only when data changed, task order stored on the server.",
+      "Security in a desktop app: user text shown as plain text (Qt would read it as HTML), safe links in the note preview, tokens only in the keyring.",
+      "Packaging for Linux: PyInstaller, a .deb with its dependencies, and the glibc version limit.",
+    ],
+    screenshots: [
+      { src: "/projects/kaizen-desktop/Home.png", caption: "Home: today's tasks, progress and widgets" },
+      { src: "/projects/kaizen-desktop/Login.png", caption: "Sign in, in your accent colour" },
+      { src: "/projects/kaizen-desktop/Notes-Open.png", caption: "Notes: list and editor with autosave" },
+      { src: "/projects/kaizen-desktop/Calendar.png", caption: "Calendar: month, selected day and next 7 days" },
+      { src: "/projects/kaizen-desktop/Learn.png", caption: "Learn: timer, heatmap and stats" },
+      { src: "/projects/kaizen-desktop/Gym-Log.png", caption: "Gym log: consistency, records and body weight" },
+      { src: "/projects/kaizen-desktop/Program-Editor.png", caption: "Program editor, keyboard driven" },
+      { src: "/projects/kaizen-desktop/Settings.png", caption: "Settings synced with the phone" },
+    ],
+    screenshotNote: "Screenshots with sample data.",
+  },
+  {
     slug: "pfesi",
     flow: "Next.js frontend → FastAPI → MySQL + Redis",
     category: "Web platform",
