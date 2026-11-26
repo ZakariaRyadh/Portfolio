@@ -1,50 +1,53 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { cn } from "../lib/utils";
+import { projects } from "../data/projects";
 
-// level: 3 = Advanced, 2 = Intermediate, 1 = Familiar
+// project: slug of the main project that used the skill (null = every project)
 const skills = [
   // Frontend
-  { name: "React", level: 3, category: "frontend" },
-  { name: "TypeScript", level: 2, category: "frontend" },
-  { name: "Tailwind CSS", level: 2, category: "frontend" },
-  { name: "Next.js", level: 2, category: "frontend" },
+  { name: "React", project: "pfesi", category: "frontend" },
+  { name: "TypeScript", project: "e-commerce", category: "frontend" },
+  { name: "Tailwind CSS", project: "e-commerce", category: "frontend" },
+  { name: "Next.js", project: "pfesi", category: "frontend" },
 
   // Mobile
-  { name: "React Native / Expo", level: 3, category: "mobile" },
-  { name: "Zustand", level: 2, category: "mobile" },
+  { name: "React Native / Expo", project: "kaizen", category: "mobile" },
+  { name: "Zustand", project: "kaizen", category: "mobile" },
 
   // Desktop
-  { name: "PySide6 / Qt", level: 2, category: "desktop" },
+  { name: "PySide6 / Qt", project: "kaizen-desktop", category: "desktop" },
 
   // Backend
-  { name: "Django + DRF", level: 2, category: "backend" },
-  { name: "JWT Auth", level: 2, category: "backend" },
-  { name: "Prisma", level: 2, category: "backend" },
-  { name: "FastAPI", level: 1, category: "backend" },
-  { name: "Flask", level: 1, category: "backend" },
-  { name: "PostgreSQL", level: 1, category: "backend" },
-  { name: "Redis / WebSockets", level: 1, category: "backend" },
+  { name: "Django + DRF", project: "motorwatch", category: "backend" },
+  { name: "JWT Auth", project: "kaizen", category: "backend" },
+  { name: "Prisma", project: "e-commerce", category: "backend" },
+  { name: "FastAPI", project: "pfesi", category: "backend" },
+  { name: "Flask", project: "smart-firewall", category: "backend" },
+  { name: "PostgreSQL", project: "e-commerce", category: "backend" },
+  { name: "Redis / WebSockets", project: "motorwatch", category: "backend" },
 
   // IoT
-  { name: "Raspberry Pi", level: 2, category: "iot" },
-  { name: "ESP32", level: 1, category: "iot" },
+  { name: "Raspberry Pi", project: "motorwatch", category: "iot" },
+  { name: "ESP32", project: "motorwatch", category: "iot" },
 
   // Security
-  { name: "Linux", level: 2, category: "security" },
-  { name: "nftables / Firewalls", level: 2, category: "security" },
-  { name: "Anomaly Detection", level: 1, category: "security" },
+  { name: "Linux", project: "smart-firewall", category: "security" },
+  { name: "nftables / Firewalls", project: "smart-firewall", category: "security" },
+  { name: "Anomaly Detection", project: "smart-firewall", category: "security" },
 
   // Machine Learning
-  { name: "Python", level: 2, category: "ml" },
-  { name: "Scikit-learn / Pandas", level: 1, category: "ml" },
+  { name: "Python", project: "kaizen-desktop", category: "ml" },
+  { name: "Scikit-learn / Pandas", project: "motorwatch", category: "ml" },
 
   // Tools
-  { name: "Git/GitHub", level: 3, category: "tools" },
-  { name: "Figma", level: 3, category: "tools" },
-  { name: "Deployment (Vercel, Render, Railway)", level: 2, category: "tools" },
+  { name: "Git/GitHub", project: null, category: "tools" },
+  { name: "Figma", project: "pfesi", category: "tools" },
+  { name: "Deployment (Vercel, Render, Railway)", project: "kaizen", category: "tools" },
 ];
 
-const levelNames = { 3: "Advanced", 2: "Intermediate", 1: "Familiar" };
+const titleOf = Object.fromEntries(projects.map((p) => [p.slug, p.title]));
 
 const categories = ["all", "frontend", "mobile", "desktop", "backend", "ml", "iot", "security", "tools"];
 const labels = { ml: "ML", iot: "IoT" };
@@ -85,26 +88,20 @@ export const SkillsSection = () => {
               key={skill.name}
               className="bg-card p-3 sm:p-6 rounded-lg shadow card-hover text-left"
             >
-              <div className="flex items-start justify-between gap-2 mb-2 sm:mb-4">
-                <h3 className="font-semibold text-sm sm:text-lg leading-tight">
-                  {skill.name}
-                </h3>
-                <span className="text-xs sm:text-sm text-muted-foreground shrink-0">
-                  {levelNames[skill.level]}
-                </span>
-              </div>
-
-              <div className="grid grid-cols-3 gap-1">
-                {[1, 2, 3].map((step) => (
-                  <div
-                    key={step}
-                    className={cn(
-                      "h-1.5 sm:h-2 rounded-full",
-                      step <= skill.level ? "bg-primary" : "bg-secondary/50"
-                    )}
-                  />
-                ))}
-              </div>
+              <h3 className="font-semibold text-sm sm:text-lg leading-tight mb-2 sm:mb-3">
+                {skill.name}
+              </h3>
+              {skill.project ? (
+                <Link
+                  to={`/projects/${skill.project}`}
+                  className="group inline-flex items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {titleOf[skill.project]}
+                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ) : (
+                <p className="text-xs sm:text-sm text-muted-foreground">Every project</p>
+              )}
             </div>
           ))}
         </div>
